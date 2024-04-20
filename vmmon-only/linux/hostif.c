@@ -1995,7 +1995,7 @@ HostIF_InitUptime(void)
 void
 HostIF_CleanupUptime(void)
 {
-   del_timer_sync(&uptimeState.timer);
+   timer_delete_sync(&uptimeState.timer);
 }
 
 
@@ -3410,7 +3410,7 @@ HostIF_SafeRDMSR(unsigned int msr,   // IN
    int err;
    u64 v;
 
-   err = rdmsrl_safe(msr, &v);
+   err = rdmsrq_safe(msr, &v);
    *val = (err == 0) ? v : 0;  // Linux corrupts 'v' on error
 
    return err;
