@@ -4,6 +4,7 @@
 .*.cmd
 *.mod.c
 *.tar
+.tmp
 .tmp_versions
 .cache.mk
 Module.symvers
